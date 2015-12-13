@@ -33,8 +33,8 @@ int main (int argc, const char* argv[])
   // client.
   problemSolver->addPathPlannerType ("PlannerTP", hpp::tp_rrt::PlannerTP::create);
   // Add new steering method in factory
-  problemSolver->addSteeringMethodType ("FlatCar",
-					hpp::tp_rrt::SteeringMethod::create);
+  /*problemSolver->addSteeringMethodType ("FlatCar",
+                    hpp::tp_rrt::SteeringMethod::create);*/
   // Create the CORBA server.
   hpp::corbaServer::Server server (problemSolver, argc, argv, true);
   // Start the CORBA server.
