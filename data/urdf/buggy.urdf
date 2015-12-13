@@ -1,0 +1,34 @@
+<robot name="buggy">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tp-rrt/meshes/buggy.dae"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tp-rrt/meshes/buggyBB.dae"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="steering angle" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1" lower="-1" upper="1"/>
+    <origin xyz="1.36 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="virtual_front_wheel"/>
+  </joint>
+  <link name="virtual_front_wheel">
+    <visual>
+      <origin xyz="0 0 0.5" rpy="0 0 0" />
+      <geometry>
+	<cylinder radius=".01" length=".01"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
